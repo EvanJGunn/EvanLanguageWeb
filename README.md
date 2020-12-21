@@ -26,7 +26,7 @@ This is like a dictionary, except it does not initially contain any words. Inste
 they wish to add their dictionary. In this way, it is a personal dictionary, and it helps the user grow their knowledge without
 overwhelming them with new and unfamiliar vocabulary.
 
-Ideally the user will be able to grow what they lmpw to encompass most of the language they need to use, by inserting those words
+Ideally the user will be able to grow what they know to encompass most of the language they need to use, by inserting those words
 into the database and testing on them, as they come across them.
 
 # What does this have to do with regression testing?
