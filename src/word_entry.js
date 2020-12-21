@@ -102,13 +102,8 @@ class WordEntry extends React.Component {
       postBody.wordSource = sourceBody;
     }
 
-    // Create the headers
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Access-Control-Allow-Origin','');
-
     // Post to the database
-    let retVal = await Axios.post(WordEntry.defaultProps.databaseSaveEndpoint, postBody, headers).then(
+    let retVal = await Axios.post(WordEntry.defaultProps.databaseSaveEndpoint, postBody).then(
       function (response) {
         return Promise.resolve("Created word with id: " + response.data.id);
       }
