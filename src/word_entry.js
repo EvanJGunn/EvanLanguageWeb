@@ -13,14 +13,16 @@ class WordEntry extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {language: '',
-                  meaning: '',
-                  romanization: '',
-                  type: '',
-                  mainSymbols: '',
-                  ancillarySymbols: '',
-                  source: '',
-                  successMessage: ''};
+    this.state = {
+      language: '',
+      meaning: '',
+      romanization: '',
+      type: '',
+      mainSymbols: '',
+      ancillarySymbols: '',
+      source: '',
+      successMessage: ''
+    };
   }
 
   // Handle setting the language
@@ -105,11 +107,11 @@ class WordEntry extends React.Component {
     // Post to the database
     let retVal = await Axios.post(WordEntry.defaultProps.databaseSaveEndpoint, postBody).then(
       function (response) {
-        return Promise.resolve("Created word with id: " + response.data.id);
+        return "Created word with id: " + response.data.id;
       }
     ).catch(
       function (error) {
-        return Promise.resolve(error.message);
+        return error.message;
       }
     );
 
@@ -143,7 +145,14 @@ class WordEntry extends React.Component {
       <table>
         <tbody>
           <tr>
-            <td width = "500" height = "100">
+            <td>
+              <h1>
+                Word Insertion
+              </h1>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <label>
                 Set Language:
                 <input type="text" value={this.state.language} onChange={this.handleChangeLanguage.bind(this)} />
@@ -183,35 +192,11 @@ class WordEntry extends React.Component {
                 Save
               </button>
             </td>
-
-            <td width = "500" height = "100">
-              <p>
-              Language: {this.state.language}
-              </p>
-              <p>
-              Romanization: {this.state.romanization}
-              </p>
-              <p>
-              Meaning: {this.state.meaning}
-              </p>
-              <p>
-              Type: {this.state.type}
-              </p>
-              <p>
-              Main Symbols: {this.state.mainSymbols}
-              </p>
-              <p>
-              Ancillary Symbols: {this.state.ancillarySymbols}
-              </p>
-              <p>
-              Source: {this.state.source}
-              </p>
-            </td>
           </tr>
         </tbody>
         <tbody>
           <tr>
-            <td width = "500" height = "100">
+            <td>
               <p>
                 {this.state.successMessage}
               </p>
